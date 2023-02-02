@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeCounter,passUser } from "../actions";
-import { bindActionCreators } from "redux";
 import { Button, Text } from "rebass";
 import { css } from "@emotion/react";
 const UserList = () => {
@@ -11,7 +10,6 @@ const UserList = () => {
   const userscount = useSelector((state) => state.counterReducer);
   const [users, setUser] = useState([]);
   const dispatch = useDispatch();
-
   useEffect(() => {
     getUsers();
   }, []);
@@ -94,7 +92,4 @@ const UserList = () => {
   );
 };
 
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(removeCounter, dispatch) };
-}
-export default connect(mapDispatchToProps)(UserList);
+export default UserList;
