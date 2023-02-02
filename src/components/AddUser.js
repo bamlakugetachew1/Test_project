@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { connect, useDispatch } from "react-redux";
+import {useDispatch } from "react-redux";
 import { addCounter } from "../actions";
-import { bindActionCreators } from "redux";
 import { Label, Input, Select } from "@rebass/forms";
 
 const AddUser = () => {
@@ -70,7 +69,4 @@ const AddUser = () => {
   );
 };
 
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(addCounter, dispatch) };
-}
-export default connect(mapDispatchToProps)(AddUser);
+export default AddUser;
